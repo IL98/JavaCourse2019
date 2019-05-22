@@ -53,11 +53,13 @@ public class EncryptedClassLoader extends ClassLoader {
 			bytes = new byte[(int) file.length()];
 			InputStream is = new FileInputStream(file);
 			is.read(bytes);
-			is.close();
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			is.close();
 		}
 
 		return bytes;
