@@ -13,9 +13,8 @@ public class MyExecutionManager implements ExecutionManager {
 			threadPool.execute(task);
 		}
 
-		while (threadPool.getCompletedTasks() + threadPool.getFailedTasks() < tasks.length) {
-			Thread.yield();
-		}
+		while (threadPool.getCompletedTasks() + threadPool.getFailedTasks() < tasks.length);
+		
 		threadPool.execute(callback);
 
 
